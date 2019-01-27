@@ -4,21 +4,21 @@ in the context of SEQUENCES OF SUB-SEQUENCES.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Shixin Yan.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 
 def main():
     """ Calls the other functions to test them. """
     run_test_largest_number()
-    run_test_largest_negative_number()
-    run_test_first_is_elsewhere_too()
+    # run_test_largest_negative_number()
+    # run_test_first_is_elsewhere_too()
 
 
 def run_test_largest_number():
     """ Tests the    largest_number    function. """
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement this TEST function.
+    # DONE: 2. Implement this TEST function.
     #   It TESTS the  largest_number  function defined below.
     #   Include at least ** 1 ** ADDITIONAL test beyond those we wrote.
     # -------------------------------------------------------------------------
@@ -44,8 +44,10 @@ def run_test_largest_number():
     answer = largest_number(([], [], []))
     print('Expected and actual are:', expected, answer)
 
-    # TODO 2 (continued): Add your ADDITIONAL test(s) here:
-
+    # DONE 2 (continued): Add your ADDITIONAL test(s) here:
+    # Test 4:
+    expected = 23
+    answer = largest_negative_number((4,3,23))
 
 def largest_number(seq_seq):
     """
@@ -76,7 +78,21 @@ def largest_number(seq_seq):
     # TODO: 3. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # -------------------------------------------------------------------------
-
+    list = []
+    for k in range(len(seq_seq)):
+        for j in range(len(seq_seq[k])):
+            list = list + [seq_seq[k][j]]
+    largest = 0
+    if len(list)==1:
+        largest = list[0]
+    else:
+        for l in range(len(list)):
+            if int(list[l])>largest:
+                largest = list[l]
+    if largest != 0:
+        return largest
+    else:
+        return None
 
 def run_test_largest_negative_number():
     """ Tests the    largest_negative_number    function. """
